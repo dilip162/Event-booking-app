@@ -2,7 +2,7 @@ import BookingDetails from "./BookingDetails";
 import FormComponent from "./FormComponent";
 const Login = () => {
   return (
-    <div className="md:flex max-w-[1545px] mx-auto">
+    <div className="flex flex-col-reverse md:flex md:flex-row  max-w-[1545px] mx-auto">
       <BookingDetails />
       <FormComponent />
     </div>
