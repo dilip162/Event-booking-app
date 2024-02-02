@@ -1,6 +1,33 @@
+import { useState } from "react";
+import { checkValidData } from "../../utils/validate";
+
 const FormComponent = () => {
+  const [errorMessage, seterrorMessage] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+  };
+
+  const handleBottonClick = async () => {
+    const message = checkValidData(email, password);
+    seterrorMessage(message);
+    if (message) return;
+
+    let item = { email, password };
+    let result = await fetch("http://3.95.174.17:3000/api/user/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(item),
+    });
+
+    result = await result.json();
+    localStorage.setItem("user-info", JSON.stringify(result));
+    history.push("./home");
   };
 
   return (
@@ -20,14 +47,15 @@ const FormComponent = () => {
             className="text-lg md:text-md font-bold md:font-semibold text-gray-800"
             htmlFor="mobile"
           >
-            Mobile no.
+            Email
           </label>
           <div>
             <input
+              onChange={(e) => setEmail(e.target.value)}
               className="mb-5 mt-2 rounded-md text-lg md:text-md  p-2 outline-none w-full"
               id="mobile"
               type="text"
-              placeholder="Enter Mobile no."
+              placeholder="Enter email"
             />
           </div>
 
@@ -39,6 +67,7 @@ const FormComponent = () => {
           </label>
           <div>
             <input
+              onChange={(e) => setPassword(e.target.value)}
               className="mt-2 rounded-md text-lg md:text-md p-2 w-full outline-none"
               id="password"
               type="password"
@@ -52,8 +81,11 @@ const FormComponent = () => {
             Forgot password?
           </a>
 
+          <p className="font-bold text-md text-red-600">{errorMessage}</p>
+
           <button
             type="submit"
+            onClick={handleBottonClick}
             className="my-4 md:my-8 rounded-md text-lg md:text-md border text-white bg-black bg-opacity-40 p-2 w-full"
           >
             Proceed
