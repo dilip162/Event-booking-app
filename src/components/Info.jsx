@@ -1,6 +1,6 @@
 const Info = ({ imgSrc, head, para }) => {
   return (
-    <div className="flex items-center my-6 ">
+    <div className="flex items-center my-6 px-2 md:px-0">
       <div className="p-4">
         <img className="w-16" src={imgSrc} alt="easy registration" />
       </div>

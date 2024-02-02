@@ -1,26 +1,30 @@
 const FormComponent = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <div className="w-1/2  bg-gray-200 flex items-center justify-center">
-      <div className="border  px-6 mx-10 w-2/3">
+    <div className="md:w-1/2 py-8 bg-gray-200 flex items-center justify-center">
+      <div className="border  md:px-6 mx-10 w-4/5 md:w-2/3">
         <div className="flex mb-6">
           <img
             className="w-16"
             src="https://e7.pngegg.com/pngimages/919/445/png-clipart-bookmyshow-office-android-ticket-android-text-logo.png"
             alt=""
           />
-          <h1 className="text-3xl font-bold">Do it Yourself</h1>
+          <h1 className="text-center text-3xl font-bold">Do it Yourself</h1>
         </div>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <label
-            className="text-md font-semibold text-gray-800"
+            className="text-lg md:text-md font-bold md:font-semibold text-gray-800"
             htmlFor="mobile"
           >
             Mobile no.
           </label>
           <div>
             <input
-              className="mb-5 mt-2 rounded-md text-md  p-2 outline-none w-full"
+              className="mb-5 mt-2 rounded-md text-lg md:text-md  p-2 outline-none w-full"
               id="mobile"
               type="text"
               placeholder="Enter Mobile no."
@@ -28,14 +32,14 @@ const FormComponent = () => {
           </div>
 
           <label
-            className="text-md font-semibold text-gray-800"
+            className="text-lg md:text-md font-bold md:font-semibold text-gray-800"
             htmlFor="password"
           >
             Password
           </label>
           <div>
             <input
-              className="mt-2 rounded-md text-md p-2 w-full outline-none"
+              className="mt-2 rounded-md text-lg md:text-md p-2 w-full outline-none"
               id="password"
               type="password"
               placeholder="Enter Password"
@@ -43,20 +47,23 @@ const FormComponent = () => {
           </div>
           <a
             href="#"
-            className="text-right border block font-semibold text-md text-blue-800"
+            className="text-right border block font-semibold text-lg md:text-md text-blue-800"
           >
             Forgot password?
           </a>
 
-          <button className="my-8 rounded-md text-md border text-white bg-black bg-opacity-40 p-2 w-full">
+          <button
+            type="submit"
+            className="my-4 md:my-8 rounded-md text-lg md:text-md border text-white bg-black bg-opacity-40 p-2 w-full"
+          >
             Proceed
           </button>
 
-          <button className="font-semibold rounded-md text-md border text-blue-800 p-2 w-full">
+          <button className="font-semibold rounded-md text-lg md:text-md border text-blue-800 p-2 w-full">
             Login with OTP
           </button>
 
-          <div className="border my-8 border-gray-600 rounded-lg"></div>
+          <div className="border my-4 md:my-8 border-gray-600 rounded-lg"></div>
 
           <div className="text-center">
             <h3 className="font-bold">
@@ -65,10 +72,10 @@ const FormComponent = () => {
                 Sign Up
               </a>
             </h3>
-            <p>Incase of any query, please write to</p>
+            {/* <p>Incase of any query, please write to</p>
             <a href="#" className="text-blue-800">
               bdbookmyshow.com
-            </a>
+            </a> */}
           </div>
         </form>
       </div>

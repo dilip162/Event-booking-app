@@ -3,7 +3,7 @@ import FormComponent from "./components/FormComponent";
 
 function App() {
   return (
-    <div className="flex">
+    <div className="md:flex max-w-[1545px] mx-auto">
       <BookingDetails />
       <FormComponent />
     </div>
