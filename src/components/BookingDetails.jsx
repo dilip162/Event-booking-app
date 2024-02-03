@@ -25,7 +25,7 @@ const BookingDetails = () => {
     <div className="flex items-center justify-center w-full md:h-screen py-8 px-2 md:px-16 md:w-1/2">
       <div>
         <h1 className="text-3xl md:text-4xl text-center font-bold">
-          Benefits of using-Do it Yourself our new event management tool
+          Benefits of using - Gatepass our new event management tool
         </h1>
         <div className="mt-6 flex flex-col items-center">
           {benefits.map((benefit, idx) => (

@@ -39,7 +39,7 @@ const FormComponent = () => {
             src="https://e7.pngegg.com/pngimages/919/445/png-clipart-bookmyshow-office-android-ticket-android-text-logo.png"
             alt=""
           />
-          <h1 className="text-center text-3xl font-bold">Do it Yourself</h1>
+          <h1 className="text-center text-3xl font-bold">Gatepass</h1>
         </div>
 
         <form onSubmit={handleSubmit}>
